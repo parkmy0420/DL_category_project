@@ -66,6 +66,7 @@ def inference(filename):
         print('ca_cls: ', ca_cls)
         print('mate_cls: ', mate_cls)
         
+        # MY BRANCH TEST
     return label
     
 
