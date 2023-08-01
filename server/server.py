@@ -292,6 +292,7 @@ def inference(filename):
         
 
         # 한글화
+        label_li = []
         for _, row in result_df.iterrows():
             
             # 소매기장 열이 존재할 경우
@@ -313,7 +314,8 @@ def inference(filename):
                 category_first_class, category_second_class, material_class = \
                 get_korean_class(row['c_first_class'], row['c_class'], row['m_class'])                
                 label = get_output_class(category_first_class, category_second_class, material_class)
-        return label
+            label_li.append(label)
+        return label_li
 
     # 모델 추론
     labels = []
