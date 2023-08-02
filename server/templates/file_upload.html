@@ -2,7 +2,7 @@
 <html lang="en">
     <body>
         <div align="center">
-            <fieldset style="width:30%;height:10%">
+            <fieldset style="width:50%;height:10%">
             <legend>upload</legend>
                 <form method="POST" enctype="multipart/form-data" action="/file_upload"> <!--form 기능 만드는 곳 post: 암호화 해서 전송, get: url에 정보 붙여 전송-->
                     <input type="file" name="file[]" multiple=""> <!--파일 업로드 -> 파일 선택 버튼 (file[]:배열은 파일 여러개 입력받음)-->
@@ -11,13 +11,32 @@
             </fieldset>
         </div>
         <br>
+
         <div align="center">
         {% for f in name %}
-            <img src={{f}}>
-            {% for cls in label[loop.index-1] %}
-                {{cls}}&nbsp;
-            {% endfor %}
+            <img src={{f}} width = "250" height = "250">
         {% endfor %}
+        </div>
+        
+        <div align="center">      
+            <fieldset style="width:50%;height:10%">      
+            <legend>category</legend>
+                <table><!--https://coding-factory.tistory.com/184 table 생성-->
+                    {% for l in label %}
+                        <tr>
+                            <td><input type = 'radio' name = 'check_category'></td>
+                            <td>
+                                {{ l[0]}}<br>
+                                {{ l[1]}}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </fieldset>
+        </div>
+
+        <div align="center"> 
+            <button>설정</button>
         </div>
     </body>
 </html>
